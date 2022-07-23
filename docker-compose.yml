@@ -1,0 +1,32 @@
+services:
+  redis:
+    image: redis
+    volumes:
+      - 'redis:/usr/local/etc/redis'
+    networks:
+      - colite
+  mysql:
+    image: 'mysql:latest'
+    volumes:
+      - 'mysql:/var/lib/mysql'
+    networks:
+      - colite
+    environment:
+      - MYSQL_DATABASE=colite
+      - MYSQL_USER=colite
+      - MYSQL_PASSWORD=colite
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+  rabbitmq:
+    image: rabbitmq
+    volumes:
+      - 'rabbit:/var/lib/rabbitmq'
+    networks:
+      - colite
+networks:
+  colite:
+    driver: bridge
+volumes:
+  mysql: null
+  app: null
+  rabbit: null
+  redis: null
