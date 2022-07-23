@@ -28,7 +28,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: ${{ github.repository }}
+          images: colite-commerce/docker-base
           tags: |
             type=semver,pattern={{version}}-${{ matrix.base-tag }}
             type=semver,pattern={{major}}.{{minor}}-${{ matrix.base-tag }}
@@ -82,7 +82,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: ${{ github.repository }}
+          images: colite-commerce/docker-base
           tags: |
             type=semver,pattern=api-{{version}}-${{ matrix.base-tag }}
             type=semver,pattern=api-{{major}}.{{minor}}-${{ matrix.base-tag }}
@@ -133,7 +133,7 @@ jobs:
         id: docker_meta
         uses: docker/metadata-action@v4.0.1
         with:
-          images: ${{ github.repository }}
+          images: colite-commerce/docker-base
           tags: |
             type=semver,pattern=worker-{{version}}-${{ matrix.base-tag }}
             type=semver,pattern=worker-{{major}}.{{minor}}-${{ matrix.base-tag }}

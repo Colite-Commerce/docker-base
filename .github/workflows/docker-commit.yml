@@ -46,7 +46,7 @@ jobs:
         with:
           push: true
           context: .
-          tags: ${{ github.repository }}:${{ github.sha }}-${{ matrix.base-tag }}
+          tags: colite-commerce/docker-base:${{ github.sha }}-${{ matrix.base-tag }}
           file: Dockerfile.base
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -91,7 +91,7 @@ jobs:
         with:
           push: true
           context: .
-          tags: ${{ github.repository }}:api-${{ github.sha }}-${{ matrix.base-tag }}
+          tags: colite-commerce/docker-base:api-${{ github.sha }}-${{ matrix.base-tag }}
           file: Dockerfile.api
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -133,7 +133,7 @@ jobs:
         with:
           push: true
           context: .
-          tags: ${{ github.repository }}:worker-${{ github.sha }}-${{ matrix.base-tag }}
+          tags: colite-commerce/docker-base:worker-${{ github.sha }}-${{ matrix.base-tag }}
           file: Dockerfile.worker
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
