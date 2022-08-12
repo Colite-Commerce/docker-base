@@ -1,4 +1,4 @@
-ARG BASE_TAG=4.6-php8.1-alpine
+ARG BASE_TAG=5.0-php8.1-alpine
 FROM phpswoole/swoole:$BASE_TAG
 
 LABEL maintainer="Florian Wartner <florian@wartner.io>"
@@ -30,7 +30,7 @@ RUN apk --update add \
         libxslt-dev \
         libgcrypt-dev && \
     pecl channel-update pecl.php.net && \
-    pecl install mcrypt redis-5.3.4 swoole && \
+    pecl install mcrypt redis-5.3.4 && \
     docker-php-ext-install \
         mysqli \
         mbstring \
@@ -49,7 +49,6 @@ RUN apk --update add \
     docker-php-ext-configure gd --with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ && \
     docker-php-ext-install gd && \
     docker-php-ext-enable redis && \
-    docker-php-ext-enable swoole && \
     rm -rf /tmp/pear && \
     rm /var/cache/apk/*
 
