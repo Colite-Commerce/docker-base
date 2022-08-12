@@ -45,7 +45,6 @@ RUN apk --update add \
         gettext \
         soap \
         sockets \
-        swoole \
         xsl && \
     docker-php-ext-configure gd --with-freetype=/usr/lib/ --with-jpeg=/usr/lib/ && \
     docker-php-ext-install gd && \
