@@ -53,7 +53,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
@@ -105,7 +105,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
@@ -154,7 +154,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
