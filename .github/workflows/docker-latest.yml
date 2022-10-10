@@ -46,7 +46,7 @@ jobs:
         with:
           load: true
           context: .
-          tags: colite-commerce/docker-base:latest-${{ matrix.base-tag }}
+          tags: ${{ steps.meta.outputs.tags }}
           file: Dockerfile.base
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -89,7 +89,7 @@ jobs:
         with:
           load: true
           context: .
-          tags: colite-commerce/docker-base:api-latest-${{ matrix.base-tag }}
+          tags: ${{ steps.meta.outputs.tags }}
           file: Dockerfile.api
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -129,7 +129,7 @@ jobs:
         with:
           load: true
           context: .
-          tags: colite-commerce/docker-base:worker-latest-${{ matrix.base-tag }}
+          tags: ${{ steps.meta.outputs.tags }}
           file: Dockerfile.worker
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
