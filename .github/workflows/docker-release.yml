@@ -13,9 +13,7 @@ env:
 jobs:
   push_base:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Release (Base FPM, ${{ matrix.base-tag }})
 
     strategy:
@@ -65,9 +63,7 @@ jobs:
 
   push_api:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Release (API, ${{ matrix.base-tag }})
 
     strategy:
@@ -119,9 +115,7 @@ jobs:
 
   push_worker:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Release (Worker, ${{ matrix.base-tag }})
 
     strategy:

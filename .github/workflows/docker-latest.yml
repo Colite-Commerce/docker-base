@@ -13,9 +13,7 @@ env:
 jobs:
   push_fpm:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Latest (Base FPM, ${{ matrix.base-tag }})
 
     strategy:
@@ -46,7 +44,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: colite-commerce/docker-base:latest-${{ matrix.base-tag }}
           file: Dockerfile.base
@@ -55,9 +53,7 @@ jobs:
 
   push_api:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Latest (API, ${{ matrix.base-tag }})
 
     strategy:
@@ -91,7 +87,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: colite-commerce/docker-base:api-latest-${{ matrix.base-tag }}
           file: Dockerfile.api
@@ -100,9 +96,7 @@ jobs:
 
   push_worker:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
-
     runs-on: ubuntu-latest
-
     name: Tag Latest (Worker, ${{ matrix.base-tag }})
 
     strategy:
@@ -133,7 +127,7 @@ jobs:
         id: docker
         uses: docker/build-push-action@v3
         with:
-          push: true
+          load: true
           context: .
           tags: colite-commerce/docker-base:worker-latest-${{ matrix.base-tag }}
           file: Dockerfile.worker
