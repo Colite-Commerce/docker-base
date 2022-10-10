@@ -57,7 +57,7 @@ jobs:
           context: .
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-          file: Dockerfile.fpm
+          file: Dockerfile.base
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
 
