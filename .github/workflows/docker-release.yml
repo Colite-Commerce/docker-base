@@ -55,8 +55,8 @@ jobs:
         with:
           load: true
           context: .
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           file: Dockerfile.base
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -107,8 +107,8 @@ jobs:
         with:
           load: true
           context: .
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           file: Dockerfile.api
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
@@ -156,8 +156,8 @@ jobs:
         with:
           load: true
           context: .
-          tags: ${{ steps.docker_meta.outputs.tags }}
-          labels: ${{ steps.docker_meta.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
           file: Dockerfile.worker
           build-args: |
             BASE_TAG=${{ matrix.base-tag }}
